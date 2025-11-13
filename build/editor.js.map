@@ -1,1 +1,0 @@
-{"version":3,"file":"editor.js","mappings":";;;;AAAAA,OAAO,CAACC,GAAG,CAAC,qBAAqB,CAAC,C","sources":["webpack:///./src/editor.js"],"sourcesContent":["console.log('WP LANGUAGES Editor');"],"names":["console","log"],"sourceRoot":""}

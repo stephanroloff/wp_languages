@@ -18,7 +18,7 @@ function register_cpts_from_globals() {
 
             // Labels del CPT
             $labels = [
-                'name' => ucfirst($real_name) . ' ' . ucfirst($lang_code),
+                'name' => ucfirst($real_name),
                 'singular_name' => ucfirst($singular),
                 'menu_name' => ucfirst($real_name) . ' ' . ucfirst($lang_code),
                 'add_new' => 'Add New',

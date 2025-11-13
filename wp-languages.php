@@ -25,4 +25,6 @@ define('WP_LANGUAGES_PLUGIN_PATH', plugin_dir_path(__FILE__));
 require_once WP_LANGUAGES_PLUGIN_PATH . 'includes/config.php';
 require_once WP_LANGUAGES_PLUGIN_PATH . 'includes/cpt_others.php';
 require_once WP_LANGUAGES_PLUGIN_PATH . 'includes/language-switcher.php';
+require_once WP_LANGUAGES_PLUGIN_PATH . 'includes/post-connections.php';
+require_once WP_LANGUAGES_PLUGIN_PATH . 'includes/language-switcher-shortcode.php';
 require_once WP_LANGUAGES_PLUGIN_PATH . 'includes/enqueue_assets.php';

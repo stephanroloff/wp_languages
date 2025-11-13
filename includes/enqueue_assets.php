@@ -6,12 +6,37 @@ function wp_languages_scripts_and_styles() {
 }
 
 function wp_languages_scripts_and_styles_editor() {
-    wp_enqueue_style('wp_languages_styles_editor', WP_LANGUAGES_PLUGIN_URL . 'build/editor.css');
-    wp_enqueue_script('wp_languages_scripts_editor', WP_LANGUAGES_PLUGIN_URL . 'build/editor.js', array('jquery','wp-element', 'wp-editor', 'wp-blocks'), '1.0.0', true);
+    $editor_asset_file = WP_LANGUAGES_PLUGIN_PATH . 'build/editor.asset.php';
+    $editor_asset = file_exists($editor_asset_file) ? require($editor_asset_file) : array(
+        'dependencies' => array('react-jsx-runtime', 'wp-api-fetch', 'wp-components', 'wp-data', 'wp-edit-post', 'wp-element', 'wp-plugins'),
+        'version' => '1.0.0'
+    );
+
+    wp_enqueue_style('wp_languages_styles_editor', WP_LANGUAGES_PLUGIN_URL . 'build/editor.css', array(), $editor_asset['version']);
+    wp_enqueue_script(
+        'wp_languages_scripts_editor',
+        WP_LANGUAGES_PLUGIN_URL . 'build/editor.js',
+        $editor_asset['dependencies'],
+        $editor_asset['version'],
+        true
+    );
+
+    if (isset($GLOBALS['languages'], $GLOBALS['all_cpt'])) {
+        wp_localize_script(
+            'wp_languages_scripts_editor',
+            'wpLanguagesData',
+            array(
+                'languages' => $GLOBALS['languages'],
+                'allCpt'    => $GLOBALS['all_cpt'],
+                'nonce'     => wp_create_nonce('wp_rest'),
+            )
+        );
+    }
 }
 
 function wp_languages_scripts_and_styles_frontend() {
     wp_enqueue_style('wp_languages_styles_frontend', WP_LANGUAGES_PLUGIN_URL . 'build/frontend.css');
+    wp_enqueue_style('wp_languages_switcher_styles', WP_LANGUAGES_PLUGIN_URL . 'assets/language-switcher.css', array(), '1.0.0');
     wp_enqueue_script('wp_languages_scripts_frontend', WP_LANGUAGES_PLUGIN_URL . 'build/frontend.js', array('jquery'), '1.0.0', true);
 }   
 
