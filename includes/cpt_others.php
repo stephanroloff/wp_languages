@@ -32,10 +32,17 @@ function register_cpts_from_globals() {
             ];
 
             // Argumentos del CPT
+            // has_archive false solo para posts_en y pages_en
+            $has_archive = !in_array($cpt_name, ['posts_en', 'pages_en'], true);
+            
+            // rewrite "en" solo para posts_en y pages_en
+            $rewrite = in_array($cpt_name, ['posts_en', 'pages_en'], true) ? ['slug' => 'en'] : true;
+            
             $args = [
                 'labels' => $labels,
                 'public' => true,
-                'has_archive' => true,
+                'has_archive' => $has_archive,
+                'rewrite' => $rewrite,
                 'show_in_rest' => true,
                 'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
                 'menu_position' => 5,
