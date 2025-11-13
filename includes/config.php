@@ -23,7 +23,7 @@ $GLOBALS['all_cpt'] = array(
     [ 'lang1' => 'pages', 'lang2' => 'pages_en', 'lang3' => 'paginas'],
     //Extra CPTs
     [ 'lang1' => 'referenzen', 'lang2' => 'projects', 'lang3' => 'referencias'],
-    [ 'lang1' => 'jobs', 'lang2' => 'jobs', 'lang3' => 'empleos'],
+    [ 'lang1' => 'stellen', 'lang2' => 'jobs', 'lang3' => 'empleos'],
 );
 ?>
 
