@@ -1,0 +1,1 @@
+{"version":3,"file":"frontend.js","mappings":";;;;AAAAA,OAAO,CAACC,GAAG,CAAC,uBAAuB,CAAC,C","sources":["webpack:///./src/frontend.js"],"sourcesContent":["console.log('WP LANGUAGES Frontend');\n"],"names":["console","log"],"sourceRoot":""}
