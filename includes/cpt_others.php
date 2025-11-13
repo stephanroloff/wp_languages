@@ -11,23 +11,24 @@ function register_cpts_from_globals() {
 
             $plural = $section[$lang_key][0];
             $singular = $section[$lang_key][1];
+            $real_name = $section[$lang_key][2];
 
             // Nombre del CPT: plural + _ + código de idioma (DE, EN)
             $cpt_name = strtolower($plural);
 
             // Labels del CPT
             $labels = [
-                'name' => ucfirst($plural) . ' ' . ucfirst($lang_code),
+                'name' => ucfirst($real_name) . ' ' . ucfirst($lang_code),
                 'singular_name' => ucfirst($singular),
-                'menu_name' => ucfirst($plural) . ' ' . ucfirst($lang_code),
+                'menu_name' => ucfirst($real_name) . ' ' . ucfirst($lang_code),
                 'add_new' => 'Add New',
                 'add_new_item' => 'Add New ' . ucfirst($singular),
                 'edit_item' => 'Edit ' . ucfirst($singular),
                 'new_item' => 'New ' . ucfirst($singular),
                 'view_item' => 'View ' . ucfirst($singular),
-                'search_items' => 'Search ' . ucfirst($plural),
-                'not_found' => 'No ' . ucfirst($plural) . ' found',
-                'not_found_in_trash' => 'No ' . ucfirst($plural) . ' found in Trash',
+                'search_items' => 'Search ' . ucfirst($real_name),
+                'not_found' => 'No ' . ucfirst($real_name) . ' found',
+                'not_found_in_trash' => 'No ' . ucfirst($real_name) . ' found in Trash',
             ];
 
             // Argumentos del CPT
