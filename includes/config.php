@@ -19,8 +19,8 @@ $GLOBALS['cpt_creator'] = array(
 );
 
 $GLOBALS['all_cpt'] = array(
-    [ 'lang1' => 'posts', 'lang2' => 'posts_en', 'lang3' => 'entradas'],
-    [ 'lang1' => 'pages', 'lang2' => 'pages_en', 'lang3' => 'paginas'],
+    [ 'lang1' => 'post', 'lang2' => 'posts_en', 'lang3' => 'entradas'],
+    [ 'lang1' => 'page', 'lang2' => 'pages_en', 'lang3' => 'paginas'],
     //Extra CPTs
     [ 'lang1' => 'referenzen', 'lang2' => 'projects', 'lang3' => 'referencias'],
     [ 'lang1' => 'stellen', 'lang2' => 'jobs', 'lang3' => 'empleos'],
