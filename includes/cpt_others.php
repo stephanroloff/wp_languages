@@ -36,7 +36,13 @@ function register_cpts_from_globals() {
             $has_archive = !in_array($cpt_name, ['posts_en', 'pages_en'], true);
             
             // rewrite "en" solo para posts_en y pages_en
-            $rewrite = in_array($cpt_name, ['posts_en', 'pages_en'], true) ? ['slug' => 'en'] : true;
+            if ($cpt_name === 'posts_en') {
+                $rewrite = ['slug' => 'post'];
+            } elseif ($cpt_name === 'pages_en') {
+                $rewrite = ['slug' => 'en'];
+            } else {
+                $rewrite = true;
+            }
             
             $args = [
                 'labels' => $labels,
