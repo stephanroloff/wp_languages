@@ -3,7 +3,7 @@
 $GLOBALS['languages'] = [
     'lang1' => 'DE 🇩🇪',
     'lang2' => 'EN 🇬🇧',
-    'lang3' => 'ES 🇪🇸'
+    // 'lang3' => 'ES 🇪🇸'
 ];
 
 $GLOBALS['cpt_existing'] = ['referenzen', 'stellen'];

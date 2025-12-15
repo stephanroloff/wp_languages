@@ -19,7 +19,7 @@ if (editorData.nonce && !window.wpLanguagesNonceApplied) {
 const getContextForPostType = (postType) => {
     if (!postType || !Array.isArray(allCpt)) {
         return null;
-    }
+    }   
 
     let foundGroup = null;
     let sourceLang = null;
@@ -94,7 +94,7 @@ const ConnectionsPanel = () => {
                 setConnections(response?.connections || {});
             })
             .catch((err) => {
-                const message = err?.message || err?.data?.message || 'Error al cargar las conexiones.';
+                const message = err?.message || err?.data?.message || 'Error loading connections.';
                 setError(message);
             })
             .finally(() => {
@@ -124,7 +124,7 @@ const ConnectionsPanel = () => {
                     setAvailablePosts(response?.posts || []);
                 })
                 .catch((err) => {
-                    const message = err?.message || err?.data?.message || 'Error al cargar los posts disponibles.';
+                    const message = err?.message || err?.data?.message || 'Error loading available posts.';
                     setError(message);
                 })
                 .finally(() => {
@@ -171,7 +171,7 @@ const ConnectionsPanel = () => {
                 loadAvailable(selectedLang);
             })
             .catch((err) => {
-                const message = err?.message || err?.data?.message || 'Error al guardar la conexión.';
+                const message = err?.message || err?.data?.message || 'Error saving connection.';
                 setError(message);
             })
             .finally(() => {
@@ -183,9 +183,9 @@ const ConnectionsPanel = () => {
         return (
             <PluginDocumentSettingPanel
                 name="wp-languages-connections"
-                title="Conexiones de idiomas"
+                title="Language Connections"
             >
-                <p>Este tipo de contenido no admite conexiones entre idiomas.</p>
+                <p>This content type does not support language connections.</p>
             </PluginDocumentSettingPanel>
         );
     }
@@ -194,9 +194,9 @@ const ConnectionsPanel = () => {
         return (
             <PluginDocumentSettingPanel
                 name="wp-languages-connections"
-                title="Conexiones de idiomas"
+                title="Language Connections"
             >
-                <p>No hay otros idiomas configurados para este tipo de contenido.</p>
+                <p>No other languages are configured for this content type.</p>
             </PluginDocumentSettingPanel>
         );
     }
@@ -209,7 +209,7 @@ const ConnectionsPanel = () => {
     const postsOptions = [
         {
             value: '',
-            label: availableLoading ? 'Cargando opciones…' : '— Sin conexión —',
+            label: availableLoading ? 'Loading options…' : '— No connection —',
         },
         ...availablePosts.map((item) => ({
             value: String(item.id),
@@ -226,7 +226,7 @@ const ConnectionsPanel = () => {
     return (
         <PluginDocumentSettingPanel
             name="wp-languages-connections"
-            title="Conexiones de idiomas"
+            title="Language Connections"
         >
             {error && (
                 <Notice status="error" onRemove={() => setError(null)} isDismissible>
@@ -235,11 +235,11 @@ const ConnectionsPanel = () => {
             )}
 
             <SelectControl
-                label="Idioma destino"
+                label="Target language"
                 value={selectedLang}
                 onChange={handleLanguageChange}
                 options={[
-                    { value: '', label: 'Selecciona un idioma' },
+                    { value: '', label: 'Select a language' },
                     ...languageOptions,
                 ]}
             />
@@ -252,20 +252,20 @@ const ConnectionsPanel = () => {
                 ) : (
                     <Fragment>
                         <SelectControl
-                            label="Post conectado"
+                            label="Connected post"
                             value={selectedPostId}
                             onChange={handlePostChange}
                             options={postsOptions}
-                            help="Solo se muestran los posts que aún no están emparejados."
+                            help="Only posts that are not already paired are shown."
                             disabled={actionLoading}
                         />
                         {!availablePosts.length && !selectedPostId && (
-                            <p>No hay posts disponibles para este idioma.</p>
+                            <p>No posts available for this language.</p>
                         )}
                     </Fragment>
                 )
             ) : (
-                <p>Elige primero un idioma para ver los posts disponibles.</p>
+                <p>Please select a language to see available posts.</p>
             )}
         </PluginDocumentSettingPanel>
     );

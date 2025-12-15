@@ -1,83 +1,33 @@
-/**
- * WP Languages Switcher Styles
- */
-
-.wp-languages-switcher {
-    display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    
-    .wp-languages-switcher-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        align-items: center;
-    }
-
-    .wp-languages-switcher-item {
-        margin: 0;
-        padding: 0;
-        
-        .wp-languages-switcher-link {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: #333;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            font-size: 0.9rem;
-            line-height: 1.4;
-
-            &:hover:not(.disabled) {
-                background-color: #e8e8e8;
-                border-color: #bbb;
-                color: #000;
+.wp-languages-switcher{
+    .wp-languages-switcher-list{
+        margin: 0px;
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 15px;
+            margin: 0px !important;
+            margin-right: 10px !important;
+            &.active{
+                font-weight: 700;
             }
 
-            &.disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-            }
-        }
+            a{
+                display: inline-block;
+                margin: 0px;
+                height: 15px;
+                font-size: 12px;
+                line-height: 15px;
+                font-family: 'Inter', sans-serif;
+                color: #fff;
 
-        &.active .wp-languages-switcher-link {
-            background-color: #0073aa;
-            color: #fff;
-            border-color: #005a87;
-            font-weight: 600;
-
-            &:hover {
-                background-color: #005a87;
-                border-color: #004a6f;
-            }
-        }
-
-        &.no-connection .wp-languages-switcher-link {
-            opacity: 0.6;
-            cursor: default;
-        }
-    }
-}
-
-// Responsive adjustments
-@media (max-width: 768px) {
-    .wp-languages-switcher {
-        .wp-languages-switcher-list {
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .wp-languages-switcher-item {
-            .wp-languages-switcher-link {
-                display: block;
-                text-align: center;
+                br{
+                    display: none;
+                }
+                img{
+                    display: none !important;
+                }
             }
         }
     }
 }
-
